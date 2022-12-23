@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-print(TOKEN)
 # client 是我們與 Discord 連結的橋樑，intents 是我們要求的權限
 intents = discord.Intents.default()
 intents.message_content = True
@@ -29,4 +28,4 @@ async def on_message(message):
         await message.channel.send("pong")
 
 
-client.run("你的機器人 TOKEN")  # TOKEN 在剛剛 Discord Developer 那邊「BOT」頁面裡面
+client.run(TOKEN)  # TOKEN 在剛剛 Discord Developer 那邊「BOT」頁面裡面

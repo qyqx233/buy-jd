@@ -11,7 +11,10 @@ async def init_session():
     global session
     con = aiohttp.TCPConnector(verify_ssl=False)
     session = aiohttp.ClientSession(
-        json_serialize=json.dumps, timeout=aiohttp.ClientTimeout(60, 10, 30, 10)
+        json_serialize=json.dumps, 
+        timeout=aiohttp.ClientTimeout(60, 10, 30, 10), 
+        trust_env=True, 
+        connector=con,
     )
 
 
